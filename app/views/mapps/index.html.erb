@@ -1,0 +1,27 @@
+<h>PHONE DIRECTORY</h>
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mapps.each do |mapp| %>
+      <tr>
+        <td><%= mapp.name %></td>
+        <td><%= mapp.number %></td>
+        <td><button id="delete"><font color="black"><%= link_to 'Delete', mapp, method: :delete, data: { confirm: 'Are you sure?' } %></font></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<button class="buttons"><%= link_to 'ADD', new_mapp_path %></button>

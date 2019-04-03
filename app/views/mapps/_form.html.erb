@@ -1,0 +1,48 @@
+<%= form_with(model: mapp, local: true) do |form| %>
+  <% if mapp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mapp.errors.count, "error") %> prohibited this mapp from being saved:</h2>
+
+      <ul>
+      <% mapp.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <font size="3"><strong><%= form.label :name %></strong></font>
+    <%= form.text_field :name, :class => 'chatinput1', :id => 'chatinput1'%>
+  </div>
+
+  <div class="field">
+    <font size="3"><strong><%= form.label :number %></strong></font>
+    <%= form.number_field :number, :class => 'chatinput2', :id => 'chatinput2'  %>
+  </div>
+
+  <br>
+  <font size="3"><strong>Subscriber entered is:</strong></font>
+  <br>
+  <p class='lhs'>Name:</p> 
+  <div class='printchatbox1' id='printchatbox1'>
+  </div>
+  <p class='lhs'>Number: </p>
+  <div class='printchatbox2' id='printchatbox2'>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Add', :class => 'buttons1' %>
+  </div>
+  <script type="text/javascript">
+    var inputBox1 = document.getElementById('chatinput1');
+    inputBox1.onkeyup = function(){
+      document.getElementById('printchatbox1').innerHTML = inputBox1.value;
+    }
+    var inputBox2 = document.getElementById('chatinput2');
+    inputBox2.onkeyup = function(){
+      document.getElementById('printchatbox2').innerHTML = inputBox2.value;
+    }
+
+  </script>
+<% end %>

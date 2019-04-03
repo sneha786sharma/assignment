@@ -1,0 +1,2 @@
+class Mapp < ApplicationRecord
+end
